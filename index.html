@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>MagicMeeting — On-device meeting transcription & minutes for macOS</title>
-<meta name="description" content="Record any meeting and get a speaker-labeled transcript, action items, and polished minutes — 100% on your own Mac. No cloud, no account, no telemetry." />
+<title>MagicMeeting — On-device transcription for meetings & research interviews (macOS)</title>
+<meta name="description" content="Transcribe meetings and research interviews on your Mac — speaker-labeled transcripts, minutes, and qualitative coding. 100% on-device. No cloud, no account, no telemetry." />
 <link rel="icon" type="image/png" href="assets/logo@2x.png" />
-<meta property="og:title" content="MagicMeeting — private, on-device meeting transcription for macOS" />
-<meta property="og:description" content="Speaker-labeled transcripts, action items, and minutes — 100% on-device. No cloud, no account." />
+<meta property="og:title" content="MagicMeeting — private, on-device transcription for meetings & interviews" />
+<meta property="og:description" content="Speaker-labeled transcripts, minutes, and qualitative coding — 100% on-device. Built for teams and researchers." />
 <meta property="og:image" content="assets/logo@2x.png" />
 <meta property="og:type" content="website" />
 <meta name="theme-color" content="#0a0b0f" />
@@ -31,12 +31,17 @@
   .wrap{max-width:var(--maxw); margin:0 auto; padding:0 24px}
   section{padding:96px 0}
   @media(max-width:640px){ section{padding:64px 0} }
-  h1,h2,h3{line-height:1.08; letter-spacing:-.03em; margin:0 0 .5em; color:#fff}
-  h2{font-size:clamp(1.9rem,4.2vw,3rem); text-align:center; font-weight:800}
-  .eyebrow{text-transform:uppercase; letter-spacing:.18em; font-size:.76rem; font-weight:800; color:var(--accent); text-align:center; margin-bottom:14px}
+  h1,h2,h3{line-height:1.1; letter-spacing:-.03em; margin:0 0 .5em; color:#fff}
+  h2{font-size:clamp(1.9rem,4.2vw,2.9rem); font-weight:800}
+  .eyebrow{text-transform:uppercase; letter-spacing:.18em; font-size:.76rem; font-weight:800; color:var(--accent); margin-bottom:14px}
   .lead{color:var(--muted); font-size:1.1rem}
   .center{text-align:center}
-  .sub-h{color:var(--muted); max-width:60ch; margin:16px auto 0; text-align:center; font-size:1.08rem}
+  .sec-head{text-align:center; max-width:none}
+  .sec-head .eyebrow{text-align:center}
+  .sec-head p{color:var(--muted); max-width:62ch; margin:16px auto 0; font-size:1.08rem}
+
+  /* icons */
+  .ico svg,svg.ic{fill:none; stroke:currentColor; stroke-width:1.6; stroke-linecap:round; stroke-linejoin:round}
 
   /* nav */
   header.nav{position:sticky; top:0; z-index:60; background:rgba(10,11,15,.7);
@@ -48,7 +53,7 @@
   .nav-links{display:flex; gap:26px}
   .nav-links a{color:var(--muted); font-weight:600; font-size:.94rem}
   .nav-links a:hover{color:#fff; opacity:1}
-  @media(max-width:820px){ .nav-links{display:none} }
+  @media(max-width:860px){ .nav-links{display:none} }
 
   /* buttons */
   .btn{display:inline-flex; align-items:center; justify-content:center; gap:9px; font-weight:700;
@@ -61,74 +66,117 @@
   .btn-ghost{background:rgba(255,255,255,.03); color:#fff; border-color:var(--border-2)}
   .btn-ghost:hover{background:rgba(255,255,255,.07)}
   .btn-sm{padding:9px 16px; border-radius:10px; font-size:.92rem}
-  .apple{width:16px;height:16px;vertical-align:-2px}
+  .apple{width:16px;height:16px;vertical-align:-2px;fill:currentColor;stroke:none}
 
   /* hero */
-  .hero{position:relative; overflow:hidden; text-align:center; padding:96px 0 92px;
+  .hero{position:relative; overflow:hidden; text-align:center; padding:92px 0 88px;
     background:
       radial-gradient(900px 460px at 50% -80px, rgba(45,212,191,.16), transparent 60%),
       radial-gradient(760px 420px at 82% 8%, rgba(56,189,248,.12), transparent 62%),
       radial-gradient(700px 420px at 12% 20%, rgba(120,90,255,.10), transparent 60%);
     border-bottom:1px solid var(--border)}
-  .hero .logo{width:118px; height:118px; border-radius:26px; box-shadow:0 24px 60px rgba(0,0,0,.55)}
-  .hero h1{font-size:clamp(2.3rem,6vw,4rem); font-weight:800; margin:.55em auto .18em; max-width:15ch; letter-spacing:-.04em}
-  .hero .sub{font-size:clamp(1.15rem,2.6vw,1.5rem); color:#cfe9e4; max-width:40ch; margin:.2em auto 0; font-weight:600}
-  .hero .pitch{color:var(--muted); max-width:54ch; margin:18px auto 32px; font-size:1.08rem}
+  .hero .logo{width:112px; height:112px; border-radius:25px; box-shadow:0 24px 60px rgba(0,0,0,.55)}
+  .hero .kicker{margin:22px 0 0; text-transform:uppercase; letter-spacing:.2em; font-size:.74rem; font-weight:800; color:var(--accent)}
+  .hero h1{font-size:clamp(2.2rem,5.6vw,3.85rem); font-weight:800; margin:.35em auto .2em; max-width:16ch; letter-spacing:-.04em}
+  .hero .sub{font-size:clamp(1.12rem,2.5vw,1.45rem); color:#cfe9e4; max-width:44ch; margin:.2em auto 0; font-weight:600}
+  .hero .pitch{color:var(--muted); max-width:56ch; margin:18px auto 32px; font-size:1.08rem}
   .cta-row{display:flex; gap:14px; justify-content:center; flex-wrap:wrap}
   .trust{margin-top:20px; color:var(--faint); font-size:.9rem}
   .chips{display:flex; gap:8px; justify-content:center; flex-wrap:wrap; margin-top:30px}
-  .chip{font-size:.8rem; font-weight:700; padding:7px 13px; border-radius:999px;
-    background:rgba(255,255,255,.04); color:#cdd6e4; border:1px solid var(--border)}
-  .chip.soon{background:rgba(240,180,94,.12); border-color:rgba(240,180,94,.34); color:#f4cf9a}
+  .chip{font-size:.8rem; font-weight:600; padding:7px 14px; border-radius:999px; display:inline-flex; align-items:center; gap:8px;
+    background:rgba(255,255,255,.03); color:#cdd6e4; border:1px solid var(--border)}
+  .chip .dot{width:6px; height:6px; border-radius:50%; background:var(--accent)}
+  .chip.soon{background:rgba(240,180,94,.10); border-color:rgba(240,180,94,.3); color:#f4cf9a}
+  .chip.soon .dot{background:var(--amber)}
+
+  /* audience split */
+  .aud{display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:44px}
+  @media(max-width:760px){ .aud{grid-template-columns:1fr} }
+  .aud .card{background:var(--panel); border:1px solid var(--border); border-radius:var(--radius); padding:30px 28px}
+  .aud .card .tag{font-size:.74rem; font-weight:800; letter-spacing:.14em; text-transform:uppercase; color:var(--accent)}
+  .aud .card h3{font-size:1.3rem; margin:12px 0 .4em}
+  .aud .card p{margin:0; color:var(--muted)}
 
   /* thin trust strip */
   .strip{border-bottom:1px solid var(--border); background:var(--bg-2)}
-  .strip .wrap{display:flex; gap:12px 34px; flex-wrap:wrap; justify-content:center; align-items:center; padding:22px 24px}
-  .strip .item{color:var(--muted); font-weight:600; font-size:.92rem; display:flex; align-items:center; gap:8px}
+  .strip .wrap{display:flex; gap:14px 32px; flex-wrap:wrap; justify-content:center; align-items:center; padding:22px 24px}
+  .strip .item{color:var(--muted); font-weight:600; font-size:.92rem; display:flex; align-items:center; gap:9px}
   .strip .item b{color:#fff}
+  .strip .item .d{width:6px;height:6px;border-radius:50%;background:var(--accent);flex:none}
 
   /* "new in" band */
-  .newband .inner{max-width:920px; margin:0 auto; background:
-      linear-gradient(120deg, rgba(45,212,191,.10), rgba(56,189,248,.08));
+  .newband .inner{max-width:940px; margin:0 auto; background:linear-gradient(120deg, rgba(45,212,191,.09), rgba(56,189,248,.07));
     border:1px solid var(--border); border-radius:24px; padding:40px 36px; text-align:center}
-  .pill{display:inline-block; font-weight:800; font-size:.74rem; letter-spacing:.12em; text-transform:uppercase;
+  .pill{display:inline-block; font-weight:800; font-size:.72rem; letter-spacing:.12em; text-transform:uppercase;
     color:#04252b; background:linear-gradient(135deg,var(--accent),var(--accent-2)); padding:6px 12px; border-radius:999px}
-  .newband h2{font-size:clamp(1.6rem,3.4vw,2.3rem); margin:16px 0 .3em}
-  .newband p{color:var(--muted); max-width:56ch; margin:0 auto}
+  .newband h2{font-size:clamp(1.55rem,3.2vw,2.2rem); margin:16px 0 .3em}
+  .newband p{color:var(--muted); max-width:58ch; margin:0 auto}
 
-  /* numbered feature grid (Bartender-style tiles) */
-  .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; margin-top:44px}
-  @media(max-width:920px){ .grid{grid-template-columns:repeat(2,1fr)} }
-  @media(max-width:600px){ .grid{grid-template-columns:1fr} }
-  .tile{position:relative; overflow:hidden; background:var(--panel); border:1px solid var(--border);
-    border-radius:var(--radius); padding:26px 24px 24px; transition:border-color .2s ease, transform .12s ease, background .2s ease}
-  .tile:hover{border-color:var(--border-2); transform:translateY(-3px); background:var(--panel-2)}
-  .tile .num{position:absolute; top:8px; right:18px; font-size:3.6rem; font-weight:800; letter-spacing:-.04em;
-    color:rgba(255,255,255,.045); line-height:1}
-  .tile .i{font-size:1.6rem; line-height:1}
-  .tile h3{font-size:1.12rem; margin:.7rem 0 .4rem; letter-spacing:-.02em}
-  .tile p{margin:0; color:var(--muted); font-size:.95rem}
+  /* professional hairline feature grid */
+  .fgrid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border);
+    border:1px solid var(--border); border-radius:20px; overflow:hidden; margin-top:48px}
+  @media(max-width:900px){ .fgrid{grid-template-columns:repeat(2,1fr)} }
+  @media(max-width:560px){ .fgrid{grid-template-columns:1fr} }
+  .cell{background:var(--bg); padding:34px 30px; transition:background .2s ease}
+  .cell:hover{background:var(--panel)}
+  .cell .ico{width:42px; height:42px; border-radius:12px; display:grid; place-items:center; margin-bottom:18px;
+    background:rgba(45,212,191,.10); border:1px solid rgba(45,212,191,.22); color:var(--accent)}
+  .cell .ico svg{width:21px; height:21px}
+  .cell h3{font-size:1.1rem; margin:0 0 .4rem; letter-spacing:-.02em}
+  .cell p{margin:0; color:var(--muted); font-size:.95rem}
+
+  /* research / coding section */
+  .research{background:var(--bg-2); border-top:1px solid var(--border); border-bottom:1px solid var(--border)}
+  .research .row{display:grid; grid-template-columns:1.05fr .95fr; gap:56px; align-items:center}
+  @media(max-width:880px){ .research .row{grid-template-columns:1fr; gap:36px} }
+  .research h2{font-size:clamp(1.7rem,3.4vw,2.5rem)}
+  .research p{color:var(--muted); font-size:1.05rem}
+  .research .cite{margin-top:18px; padding-left:16px; border-left:2px solid var(--accent); color:var(--muted); font-size:.96rem}
+  .research .cite em{color:#cfe9e4; font-style:italic}
+  .rlist{list-style:none; padding:0; margin:22px 0 0}
+  .rlist li{display:flex; gap:12px; align-items:flex-start; margin:0 0 13px; color:#dbe2ee; font-size:.98rem}
+  .rlist li .ck{flex:none; width:22px; height:22px; border-radius:6px; display:grid; place-items:center; color:var(--accent);
+    background:rgba(45,212,191,.10); border:1px solid rgba(45,212,191,.24)}
+  .rlist li .ck svg{width:13px;height:13px}
+  /* code tree visual */
+  .tree{background:var(--panel); border:1px solid var(--border); border-radius:20px; padding:26px 26px 22px; box-shadow:0 20px 50px rgba(0,0,0,.35)}
+  .tree .th{font-size:.72rem; text-transform:uppercase; letter-spacing:.16em; color:var(--faint); font-weight:800; margin-bottom:16px}
+  .node{display:flex; align-items:center; gap:10px; padding:9px 0}
+  .node .lbl{font-weight:600; color:#fff; font-size:.96rem}
+  .node .meta{margin-left:auto; font-family:ui-monospace,SFMono-Regular,Menlo,monospace; font-size:.78rem; color:var(--faint)}
+  .cat>.lbl{color:#fff}
+  .cat .badge{font-size:.66rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; color:var(--accent);
+    background:rgba(45,212,191,.1); border:1px solid rgba(45,212,191,.24); padding:3px 8px; border-radius:6px}
+  .indent{margin-left:14px; padding-left:16px; border-left:1px solid var(--border)}
+  .code .tagi{width:15px;height:15px;color:var(--accent-2)}
+  .code .tagi svg{width:15px;height:15px;stroke:var(--accent-2)}
+  .excerpt{margin:2px 0 6px; padding:10px 12px; background:var(--bg); border:1px solid var(--border); border-radius:10px;
+    color:var(--muted); font-size:.86rem; display:flex; gap:8px; align-items:baseline}
+  .excerpt .q{color:#cdd6e4; font-style:italic}
+  .excerpt .ts{margin-left:auto; font-family:ui-monospace,Menlo,monospace; font-size:.75rem; color:var(--accent-2); flex:none}
 
   /* privacy */
   .pgrid{display:grid; grid-template-columns:repeat(4,1fr); gap:16px; margin-top:40px}
   @media(max-width:860px){ .pgrid{grid-template-columns:repeat(2,1fr)} }
   @media(max-width:460px){ .pgrid{grid-template-columns:1fr} }
-  .pcard{background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:22px}
-  .pcard .i{font-size:1.5rem}
-  .pcard h4{margin:.55rem 0 .3rem; font-size:1rem; color:#fff}
+  .pcard{background:var(--panel); border:1px solid var(--border); border-radius:16px; padding:24px}
+  .pcard .ico{width:38px;height:38px;border-radius:11px;display:grid;place-items:center;margin-bottom:14px;
+    background:rgba(45,212,191,.08); border:1px solid rgba(45,212,191,.2); color:var(--accent)}
+  .pcard .ico svg{width:19px;height:19px}
+  .pcard h4{margin:0 0 .3rem; font-size:1rem; color:#fff}
   .pcard p{margin:0; color:var(--muted); font-size:.9rem}
 
   /* metrics */
-  .metrics{display:grid; grid-template-columns:1fr 1fr; gap:20px; max-width:780px; margin:44px auto 0}
+  .metrics{display:grid; grid-template-columns:1fr 1fr; gap:20px; max-width:800px; margin:44px auto 0}
   @media(max-width:560px){ .metrics{grid-template-columns:1fr} }
   .metric{background:var(--panel); border:1px solid var(--border); border-radius:18px; padding:30px; text-align:center}
-  .metric .big{font-size:2.7rem; font-weight:800; letter-spacing:-.03em;
+  .metric .big{font-size:2.6rem; font-weight:800; letter-spacing:-.03em;
     background:linear-gradient(90deg,var(--accent),var(--accent-2)); -webkit-background-clip:text; background-clip:text; color:transparent}
   .metric .lab{margin-top:10px; font-weight:700; color:#fff}
   .metric .was{color:var(--faint); font-size:.88rem; margin-top:4px}
 
   /* languages */
-  .langs{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; max-width:840px; margin:30px auto 0}
+  .langs{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; max-width:860px; margin:30px auto 0}
   .lang{font-size:.85rem; padding:7px 13px; border-radius:999px; background:var(--panel); border:1px solid var(--border); color:var(--muted)}
 
   /* steps */
@@ -147,15 +195,17 @@
     border:1px solid var(--border); border-radius:24px; padding:44px 36px}
   .soonband .tag{display:inline-block; font-weight:800; letter-spacing:.12em; text-transform:uppercase; font-size:.78rem; color:var(--amber)}
   .soonband h2{margin:.35em 0 .4em; text-align:center}
-  .soonband p{color:var(--muted); max-width:54ch; margin:0 auto 22px}
+  .soonband p{color:var(--muted); max-width:56ch; margin:0 auto 22px}
 
-  /* faq */
-  .faq{max-width:820px; margin:38px auto 0}
-  details{background:var(--panel); border:1px solid var(--border); border-radius:14px; padding:2px 20px; margin-bottom:12px}
+  /* faq — robust two independent columns */
+  .faq{max-width:980px; margin:38px auto 0; display:grid; grid-template-columns:1fr 1fr; gap:16px; align-items:start}
+  @media(max-width:720px){ .faq{grid-template-columns:1fr} }
+  .faq-col{display:flex; flex-direction:column; gap:14px; min-width:0}
+  details{background:var(--panel); border:1px solid var(--border); border-radius:14px; padding:2px 20px}
   details[open]{border-color:var(--border-2)}
-  summary{cursor:pointer; font-weight:700; padding:16px 0; list-style:none; display:flex; justify-content:space-between; align-items:center; color:#fff}
+  summary{cursor:pointer; font-weight:700; padding:16px 0; list-style:none; display:flex; justify-content:space-between; gap:14px; align-items:center; color:#fff}
   summary::-webkit-details-marker{display:none}
-  summary::after{content:"+"; color:var(--accent); font-weight:700; font-size:1.3rem; line-height:1}
+  summary::after{content:"+"; color:var(--accent); font-weight:700; font-size:1.3rem; line-height:1; flex:none}
   details[open] summary::after{content:"–"}
   details p{margin:0 0 18px; color:var(--muted)}
 
@@ -163,9 +213,8 @@
   footer{border-top:1px solid var(--border); background:
       radial-gradient(700px 300px at 50% 120%, rgba(45,212,191,.10), transparent 62%), var(--bg-2);
     padding:76px 0 48px; text-align:center}
-  footer .big{font-size:clamp(1.7rem,3.6vw,2.6rem); font-weight:800; letter-spacing:-.03em; margin-bottom:26px; color:#fff}
-  footer .fine{color:var(--faint); font-size:.84rem; max-width:64ch; margin:30px auto 0}
-  footer .fine a{color:var(--muted)}
+  footer .big{font-size:clamp(1.7rem,3.6vw,2.5rem); font-weight:800; letter-spacing:-.03em; margin-bottom:26px; color:#fff}
+  footer .fine{color:var(--faint); font-size:.84rem; max-width:66ch; margin:30px auto 0}
 </style>
 </head>
 <body>
@@ -176,8 +225,8 @@
     <div class="spacer"></div>
     <nav class="nav-links">
       <a href="#features">Features</a>
+      <a href="#research">For researchers</a>
       <a href="#privacy">Privacy</a>
-      <a href="#accuracy">Accuracy</a>
       <a href="#soon">Windows &amp; Linux</a>
     </nav>
     <a class="btn btn-primary btn-sm" href="https://github.com/apitlekays/magicmeeting-releases/releases/latest">Download</a>
@@ -188,34 +237,48 @@
 <section class="hero">
   <div class="wrap">
     <img class="logo" src="assets/logo@2x.png" alt="MagicMeeting app icon" />
-    <h1>Your meetings, transcribed and minuted.</h1>
+    <div class="kicker">For teams &amp; researchers</div>
+    <h1>Every conversation, transcribed and understood.</h1>
     <p class="sub">Without a single byte leaving your Mac.</p>
-    <p class="pitch">Record any meeting and get a speaker-labeled transcript, action items, and polished minutes in minutes — <strong style="color:#fff">100% on-device</strong>. No cloud. No account. No one listening in.</p>
+    <p class="pitch">Record meetings and research interviews and get a speaker-labeled transcript, structured minutes, and audio-linked coded notes — <strong style="color:#fff">100% on-device</strong>. No cloud. No account. No one listening in.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="https://github.com/apitlekays/magicmeeting-releases/releases/latest">
-        <svg class="apple" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+        <svg class="apple" viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
         Download for macOS
       </a>
       <a class="btn btn-ghost" href="#soon">Windows &amp; Linux — Q3 2026</a>
     </div>
     <div class="trust">Free · Universal (Apple Silicon + Intel) · Signed &amp; notarized by Apple — opens with no Gatekeeper prompt.</div>
     <div class="chips">
-      <span class="chip">🔒 100% on-device</span>
-      <span class="chip">🌍 ~99 languages</span>
-      <span class="chip">👥 Speaker diarization</span>
-      <span class="chip">📄 PDF &amp; Word export</span>
-      <span class="chip soon">🪟🐧 Windows &amp; Linux — Q3 2026</span>
+      <span class="chip"><span class="dot"></span>100% on-device</span>
+      <span class="chip"><span class="dot"></span>~99 languages</span>
+      <span class="chip"><span class="dot"></span>Speaker diarization</span>
+      <span class="chip"><span class="dot"></span>Qualitative coding</span>
+      <span class="chip soon"><span class="dot"></span>Windows &amp; Linux — Q3 2026</span>
+    </div>
+
+    <div class="aud">
+      <div class="card">
+        <div class="tag">For teams</div>
+        <h3>From recording to minutes</h3>
+        <p>Capture the call, watch it transcribe live, then turn decisions into action items and a shareable Minutes-of-Meeting document — without leaving the app.</p>
+      </div>
+      <div class="card">
+        <div class="tag">For researchers</div>
+        <h3>From interview to coded data</h3>
+        <p>Transcribe interviews and focus groups, then code excerpts into categories and themes with analytic memos — every code linked back to the audio.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <div class="strip">
   <div class="wrap">
-    <div class="item">🔒 <b>No cloud</b>, no account</div>
-    <div class="item">🧠 On-device <b>Whisper</b> STT</div>
-    <div class="item">👥 <b>Speaker</b> diarization</div>
-    <div class="item">🌍 <b>~99</b> languages</div>
-    <div class="item">📄 <b>PDF &amp; Word</b> export</div>
+    <div class="item"><span class="d"></span><b>No cloud</b>, no account</div>
+    <div class="item"><span class="d"></span>On-device <b>Whisper</b> STT</div>
+    <div class="item"><span class="d"></span><b>Speaker</b> diarization</div>
+    <div class="item"><span class="d"></span><b>~99</b> languages</div>
+    <div class="item"><span class="d"></span><b>Qualitative</b> coding</div>
   </div>
 </div>
 
@@ -232,18 +295,102 @@
 <a id="features"></a>
 <section>
   <div class="wrap">
-    <div class="eyebrow">Everything after "stop recording"</div>
-    <h2>One app, from record to minutes</h2>
-    <div class="grid">
-      <div class="tile"><span class="num">01</span><div class="i">🎙</div><h3>Live transcription</h3><p>Capture your microphone and system audio together — the transcript streams in as you speak, no post-meeting spinner.</p></div>
-      <div class="tile"><span class="num">02</span><div class="i">👥</div><h3>Speaker labels</h3><p>Every voice is separated automatically. Rename a speaker once and it updates everywhere — transcript, notes, and minutes.</p></div>
-      <div class="tile"><span class="num">03</span><div class="i">✍️</div><h3>Editable transcript</h3><p>Double-click to fix a line. Merge or split segments non-destructively, reflected everywhere it matters.</p></div>
-      <div class="tile"><span class="num">04</span><div class="i">📋</div><h3>Minutes &amp; action items</h3><p>Track action items with owner, priority, and status, aggregated into one Minutes table that stays in sync.</p></div>
-      <div class="tile"><span class="num">05</span><div class="i">🗂</div><h3>Research-grade notes</h3><p>Tag excerpts with codes, attach notes, and jump from any note straight back to that moment in the audio.</p></div>
-      <div class="tile"><span class="num">06</span><div class="i">📄</div><h3>PDF &amp; Word export</h3><p>One click to clean, reproducible PDF or Word (.docx) — transcript, minutes, or notes.</p></div>
-      <div class="tile"><span class="num">07</span><div class="i">🌊</div><h3>Waveform, click-to-seek</h3><p>Scrub on a rendered waveform, or click any timestamp in the transcript, notes, or minutes to jump there.</p></div>
-      <div class="tile"><span class="num">08</span><div class="i">📁</div><h3>Transcribe existing files</h3><p>Already have a recording? Point MagicMeeting at it and get the full treatment — no live recording needed.</p></div>
-      <div class="tile"><span class="num">09</span><div class="i">🔄</div><h3>Updates itself</h3><p>New versions are cryptographically verified and installed in-app, so you're always current.</p></div>
+    <div class="sec-head">
+      <div class="eyebrow">Capabilities</div>
+      <h2>One app, from record to result</h2>
+      <p>Everything you need after you stop recording — whether the result is a set of minutes or a coded dataset.</p>
+    </div>
+    <div class="fgrid">
+
+      <div class="cell">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg></div>
+        <h3>Live transcription</h3>
+        <p>Capture microphone and system audio together — the transcript streams in as you speak, no post-session wait.</p>
+      </div>
+
+      <div class="cell">
+        <div class="ico"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 5.5a3 3 0 0 1 0 5.6"/><path d="M21.5 20a6.5 6.5 0 0 0-4-6"/></svg></div>
+        <h3>Speaker diarization</h3>
+        <p>Voices are separated automatically. Rename a speaker once and it updates across transcript, notes, and minutes.</p>
+      </div>
+
+      <div class="cell">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 20h4L18.5 9.5a2.1 2.1 0 0 0-3-3L5 17v3z"/><path d="M13.5 7l3 3"/></svg></div>
+        <h3>Editable transcript</h3>
+        <p>Double-click to fix a line. Merge or split segments non-destructively, reflected everywhere it matters.</p>
+      </div>
+
+      <div class="cell">
+        <div class="ico"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 4V3h6v1"/><path d="M8.5 12.5l2 2 4-4.5"/></svg></div>
+        <h3>Minutes &amp; action items</h3>
+        <p>Track action items with owner, priority, and status, aggregated into one Minutes table that stays in sync.</p>
+      </div>
+
+      <div class="cell">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 12.5V5a2 2 0 0 1 2-2h7.5L21 11.5a1.8 1.8 0 0 1 0 2.6l-6.9 6.9a1.8 1.8 0 0 1-2.6 0L3 12.5z"/><circle cx="8.5" cy="8.5" r="1.4"/></svg></div>
+        <h3>Qualitative coding</h3>
+        <p>Tag excerpts with codes, group them into categories, and write analytic memos — each linked to the audio.</p>
+      </div>
+
+      <div class="cell">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4"/><path d="M11 12v6"/><path d="M8.5 15.5L11 18l2.5-2.5"/></svg></div>
+        <h3>PDF &amp; Word export</h3>
+        <p>One click to clean, reproducible PDF or Word (.docx) — transcript, minutes, or your coded notes.</p>
+      </div>
+
+      <div class="cell">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 12h2"/><path d="M8 7v10"/><path d="M12 4v16"/><path d="M16 8v8"/><path d="M19 11v2"/></svg></div>
+        <h3>Waveform &amp; click-to-seek</h3>
+        <p>Scrub on a rendered waveform, or click any timestamp in the transcript, notes, or minutes to jump there.</p>
+      </div>
+
+      <div class="cell">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7z"/></svg></div>
+        <h3>Transcribe existing files</h3>
+        <p>Already have a recording? Point MagicMeeting at it and get the full treatment — no live recording needed.</p>
+      </div>
+
+      <div class="cell">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M4 12a8 8 0 0 1 13.7-5.7L20 8"/><path d="M20 4v4h-4"/><path d="M20 12a8 8 0 0 1-13.7 5.7L4 16"/><path d="M4 20v-4h4"/></svg></div>
+        <h3>Updates itself</h3>
+        <p>New versions are cryptographically verified and installed in-app, so you're always current.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<a id="research"></a>
+<section class="research">
+  <div class="wrap">
+    <div class="row">
+      <div>
+        <div class="eyebrow">For qualitative researchers</div>
+        <h2>Code your interviews, the way the manual teaches.</h2>
+        <p>MagicMeeting's notes are built around the qualitative coding workflow — assign a <strong style="color:#fff">code</strong> to any excerpt, group codes into <strong style="color:#fff">categories</strong> and <strong style="color:#fff">themes</strong>, and keep <strong style="color:#fff">analytic memos</strong> as your interpretation develops.</p>
+        <div class="cite">Structured around the codes-to-categories model in <em>Johnny Saldaña, The Coding Manual for Qualitative Researchers</em>.</div>
+        <ul class="rlist">
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4 4 10-10.5"/></svg></span>Highlight a passage and code it in place — no exporting to another tool.</li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4 4 10-10.5"/></svg></span>Nest codes into parent categories to move from first-cycle codes toward themes.</li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4 4 10-10.5"/></svg></span>Every coded excerpt keeps its speaker and timestamp — one click plays the audio.</li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4 4 10-10.5"/></svg></span>Interview data never leaves your machine — helpful for consent, ethics, and IRB commitments.</li>
+          <li><span class="ck"><svg class="ic" viewBox="0 0 24 24"><path d="M5 12.5l4 4 10-10.5"/></svg></span>Export your codebook and coded excerpts to PDF or Word for write-up.</li>
+        </ul>
+      </div>
+
+      <div class="tree" aria-hidden="true">
+        <div class="th">Your codebook</div>
+        <div class="node cat"><span class="lbl">Barriers to access</span><span class="badge">Category</span></div>
+        <div class="indent">
+          <div class="node code"><span class="tagi"><svg viewBox="0 0 24 24"><path d="M3 12.5V6a2 2 0 0 1 2-2h6.5L20 12a1.6 1.6 0 0 1 0 2.3l-5.7 5.7a1.6 1.6 0 0 1-2.3 0L3 12.5z"/></svg></span><span class="lbl">Cost</span><span class="meta">7 excerpts</span></div>
+          <div class="excerpt"><span class="q">“…honestly it was just too expensive for us…”</span><span class="ts">12:05</span></div>
+          <div class="node code"><span class="tagi"><svg viewBox="0 0 24 24"><path d="M3 12.5V6a2 2 0 0 1 2-2h6.5L20 12a1.6 1.6 0 0 1 0 2.3l-5.7 5.7a1.6 1.6 0 0 1-2.3 0L3 12.5z"/></svg></span><span class="lbl">Distance to clinic</span><span class="meta">4 excerpts</span></div>
+        </div>
+        <div class="node cat" style="margin-top:6px"><span class="lbl">Trust &amp; rapport</span><span class="badge">Theme</span></div>
+        <div class="indent">
+          <div class="node code"><span class="tagi"><svg viewBox="0 0 24 24"><path d="M3 12.5V6a2 2 0 0 1 2-2h6.5L20 12a1.6 1.6 0 0 1 0 2.3l-5.7 5.7a1.6 1.6 0 0 1-2.3 0L3 12.5z"/></svg></span><span class="lbl">Prior experience</span><span class="meta">5 excerpts</span></div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -251,14 +398,16 @@
 <a id="privacy"></a>
 <section class="strip" style="border-top:1px solid var(--border); padding:96px 0">
   <div class="wrap">
-    <div class="eyebrow">Private by design</div>
-    <h2>Your audio never leaves your Mac</h2>
-    <p class="sub-h">Most transcription tools ship your meetings — often confidential ones — to someone else's servers. MagicMeeting doesn't. If it can't leave your machine, it can't leak.</p>
+    <div class="sec-head">
+      <div class="eyebrow">Private by design</div>
+      <h2>Your audio never leaves your Mac</h2>
+      <p>Most transcription tools ship your meetings and interviews — often confidential — to someone else's servers. MagicMeeting doesn't. If it can't leave your machine, it can't leak.</p>
+    </div>
     <div class="pgrid">
-      <div class="pcard"><div class="i">🚫</div><h4>No cloud, no account</h4><p>Speech models download once (checksum-verified); everything runs locally from then on.</p></div>
-      <div class="pcard"><div class="i">📡</div><h4>No telemetry</h4><p>We don't phone home. There's nothing to opt out of.</p></div>
-      <div class="pcard"><div class="i">✈️</div><h4>Works on a plane</h4><p>Full transcription with zero connectivity.</p></div>
-      <div class="pcard"><div class="i">🗄️</div><h4>Your data stays yours</h4><p>Recordings, transcripts, and notes live in a local database — deletable in one click.</p></div>
+      <div class="pcard"><div class="ico"><svg viewBox="0 0 24 24"><path d="M4.5 4.5l15 15"/><circle cx="12" cy="12" r="9"/></svg></div><h4>No cloud, no account</h4><p>Speech models download once (checksum-verified); everything runs locally from then on.</p></div>
+      <div class="pcard"><div class="ico"><svg viewBox="0 0 24 24"><path d="M5 13a7 7 0 0 1 14 0"/><path d="M8.5 14a3.5 3.5 0 0 1 7 0"/><circle cx="12" cy="15" r="1"/></svg></div><h4>No telemetry</h4><p>We don't phone home. There's nothing to opt out of.</p></div>
+      <div class="pcard"><div class="ico"><svg viewBox="0 0 24 24"><path d="M3 11l18-7-7 18-2.5-8L3 11z"/></svg></div><h4>Works offline</h4><p>Full transcription with zero connectivity — useful in the field or on a plane.</p></div>
+      <div class="pcard"><div class="ico"><svg viewBox="0 0 24 24"><path d="M12 3l8 3.5v5c0 4.5-3.4 8-8 9.5-4.6-1.5-8-5-8-9.5v-5L12 3z"/><path d="M9 12l2 2 4-4.5"/></svg></div><h4>Ethics-friendly</h4><p>Interview data stays under your control — deletable in one click. Good for consent &amp; IRB.</p></div>
     </div>
   </div>
 </section>
@@ -266,9 +415,11 @@
 <a id="accuracy"></a>
 <section>
   <div class="wrap">
-    <div class="eyebrow">Robust by measurement</div>
-    <h2>Tuned on real meetings, not benchmarks</h2>
-    <p class="sub-h">Anyone can wire up Whisper. The hard part is surviving long, real, multi-speaker meetings — where off-the-shelf pipelines hallucinate phrases into silence and collapse every voice into one speaker. MagicMeeting is tuned against a built-in harness that scores a real <strong style="color:#fff">4h 38m</strong> multilingual meeting through the exact production pipeline. Every improvement has to prove itself on real audio before it ships.</p>
+    <div class="sec-head">
+      <div class="eyebrow">Robust by measurement</div>
+      <h2>Tuned on real recordings, not benchmarks</h2>
+      <p>Off-the-shelf pipelines break on long, real, multi-speaker recordings — hallucinating phrases into silence and collapsing every voice into one speaker. MagicMeeting is tuned against a built-in harness that scores a real <strong style="color:#fff">4h 38m</strong> multilingual interview through the exact production pipeline. Every improvement has to prove itself on real audio before it ships.</p>
+    </div>
     <div class="metrics">
       <div class="metric"><div class="big">2.7% → 0%</div><div class="lab">Hallucinated phrases</div><div class="was">eliminated, word-error unchanged</div></div>
       <div class="metric"><div class="big">38% → 0%</div><div class="lab">Speech attributed to the wrong speaker</div><div class="was">global re-clustering pulls a collapsed group back apart</div></div>
@@ -278,9 +429,11 @@
 
 <section class="strip" style="border-top:1px solid var(--border); padding:96px 0">
   <div class="wrap">
-    <div class="eyebrow">Multilingual</div>
-    <h2>Speaks your language — ~99 of them</h2>
-    <p class="sub-h">Transcribed on-device by a multilingual model — pick one or let it auto-detect. Optional <strong style="color:#fff">accuracy packs</strong> swap in specialized on-device models for select languages, added over time with no app update.</p>
+    <div class="sec-head">
+      <div class="eyebrow">Multilingual</div>
+      <h2>Speaks your language — ~99 of them</h2>
+      <p>Transcribed on-device by a multilingual model — pick one or let it auto-detect. Optional <strong style="color:#fff">accuracy packs</strong> swap in specialized on-device models for select languages, added over time with no app update. Ideal for cross-language fieldwork.</p>
+    </div>
     <div class="langs">
       <span class="lang">Arabic</span><span class="lang">Bahasa Malaysia</span><span class="lang">Bahasa Indonesia</span><span class="lang">Bengali</span><span class="lang">Cantonese</span><span class="lang">Mandarin</span><span class="lang">Dutch</span><span class="lang">English</span><span class="lang">French</span><span class="lang">German</span><span class="lang">Hebrew</span><span class="lang">Hindi</span><span class="lang">Italian</span><span class="lang">Japanese</span><span class="lang">Korean</span><span class="lang">Persian</span><span class="lang">Portuguese</span><span class="lang">Russian</span><span class="lang">Spanish</span><span class="lang">Swahili</span><span class="lang">Tamil</span><span class="lang">Telugu</span><span class="lang">Thai</span><span class="lang">Turkish</span><span class="lang">Ukrainian</span><span class="lang">Urdu</span><span class="lang">Vietnamese</span><span class="lang">+ many more</span>
     </div>
@@ -289,8 +442,10 @@
 
 <section>
   <div class="wrap">
-    <div class="eyebrow">Free · signed &amp; notarized</div>
-    <h2>Install in 30 seconds</h2>
+    <div class="sec-head">
+      <div class="eyebrow">Free · signed &amp; notarized</div>
+      <h2>Install in 30 seconds</h2>
+    </div>
     <div class="steps">
       <div class="step"><div class="n">1</div><h3>Download</h3><p>Grab the universal <code>.dmg</code> — runs natively on Apple Silicon and Intel.</p></div>
       <div class="step"><div class="n">2</div><h3>Drag to Applications</h3><p>Open the disk image and drop MagicMeeting into your Applications folder.</p></div>
@@ -317,27 +472,33 @@
 
 <section class="strip" style="border-top:1px solid var(--border); padding:96px 0">
   <div class="wrap">
-    <div class="eyebrow">Questions</div>
-    <h2>Frequently asked</h2>
+    <div class="sec-head">
+      <div class="eyebrow">Questions</div>
+      <h2>Frequently asked</h2>
+    </div>
     <div class="faq">
-      <details><summary>Is my audio really never uploaded?</summary><p>Correct. There's no server and no account. After a one-time model download, MagicMeeting runs fully offline — pull the network cable and it works identically.</p></details>
-      <details><summary>Do I need a subscription or license key?</summary><p>No. Download it and go.</p></details>
-      <details><summary>Where are my recordings stored?</summary><p>In a local database on your Mac, under your control. Delete a session and its audio, transcript, speakers, and minutes are gone for good.</p></details>
-      <details><summary>Can it transcribe files I already recorded?</summary><p>Yes — point it at an audio file and get a full speaker-labeled transcript and minutes.</p></details>
-      <details><summary>Which Macs are supported?</summary><p>Any Mac on macOS 12.3+, Apple Silicon or Intel, from a single universal download.</p></details>
-      <details><summary>Is there a Windows or Linux version?</summary><p>Not yet — both are targeted for Q3 2026. Watch the repository to be notified the moment they land.</p></details>
+      <div class="faq-col">
+        <details><summary>Is my audio really never uploaded?</summary><p>Correct. There's no server and no account. After a one-time model download, MagicMeeting runs fully offline — pull the network cable and it works identically.</p></details>
+        <details><summary>Can I use this for qualitative research?</summary><p>Yes — that's a core use case. Transcribe interviews and focus groups, then code excerpts into categories and themes with analytic memos, each linked back to the speaker and timestamp. The workflow follows the codes-to-categories model in Saldaña's Coding Manual, and you can export your coded notes to PDF or Word.</p></details>
+        <details><summary>Where are my recordings stored?</summary><p>In a local database on your Mac, under your control. Delete a session and its audio, transcript, speakers, and notes are gone for good — helpful for consent and IRB commitments.</p></details>
+      </div>
+      <div class="faq-col">
+        <details><summary>Do I need a subscription or license key?</summary><p>No. Download it and go — it's free.</p></details>
+        <details><summary>Can it transcribe files I already recorded?</summary><p>Yes — point it at an audio file and get a full speaker-labeled transcript you can edit, code, and export.</p></details>
+        <details><summary>Which platforms are supported?</summary><p>Any Mac on macOS 12.3+ today (Apple Silicon or Intel, one universal download). Native Windows and Linux builds are targeted for Q3 2026 — watch the repository to be notified.</p></details>
+      </div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <div class="big">Stop re-listening to your meetings.</div>
+    <div class="big">Stop re-listening to your recordings.</div>
     <a class="btn btn-primary" href="https://github.com/apitlekays/magicmeeting-releases/releases/latest">
-      <svg class="apple" viewBox="0 0 384 512" fill="currentColor" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+      <svg class="apple" viewBox="0 0 384 512" aria-hidden="true"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
       Download MagicMeeting for macOS
     </a>
-    <p class="fine">On-device transcription · speaker labels · minutes &amp; action items · PDF/Word export — private by design. This site is the public download host for MagicMeeting; the app source lives in a separate private repository, and this repo distributes the signed, notarized macOS installers and auto-update artifacts only.</p>
+    <p class="fine">On-device transcription · speaker labels · minutes &amp; action items · qualitative coding · PDF/Word export — private by design. This site is the public download host for MagicMeeting; the app source lives in a separate private repository, and this repo distributes the signed, notarized macOS installers and auto-update artifacts only.</p>
   </div>
 </footer>
 
