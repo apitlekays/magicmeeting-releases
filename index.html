@@ -63,16 +63,14 @@
   .apple{width:16px;height:16px;display:inline-block;vertical-align:-2px}
 
   /* ---- hero ---- */
-  .hero{position:relative; overflow:hidden; text-align:center; padding:86px 0 74px;
+  /* Dark, self-contained hero in BOTH light and dark mode — a dark hero on a
+     light page is intentional, and (critically) it never fades to white
+     mid-section, so the trust line + chips below the buttons stay legible. */
+  .hero{position:relative; overflow:hidden; text-align:center; padding:86px 0 84px;
     background:
-      radial-gradient(1100px 420px at 50% -120px, rgba(36,200,219,.16), transparent 60%),
-      linear-gradient(180deg,#101a36 0%, #0b1430 55%, var(--bg) 100%);
-    border-bottom:1px solid var(--border); color:var(--hero-ink)}
-  @media(prefers-color-scheme:light){
-    .hero{background:
-      radial-gradient(1100px 420px at 50% -120px, rgba(36,200,219,.20), transparent 60%),
-      linear-gradient(180deg,#12203f 0%, #1b2c55 46%, var(--bg) 100%); color:#eef4ff}
-  }
+      radial-gradient(1200px 500px at 50% -150px, rgba(36,200,219,.24), transparent 62%),
+      linear-gradient(180deg,#0f1a38 0%, #182a58 52%, #223576 100%);
+    border-bottom:1px solid rgba(255,255,255,.08); color:#eaf1ff}
   .hero .logo{width:120px; height:120px; border-radius:26px; box-shadow:0 20px 50px rgba(0,0,0,.45); }
   .hero h1{font-size:clamp(2rem,5.2vw,3.35rem); margin:.5em auto .2em; max-width:14ch; color:#fff}
   .hero .sub{font-size:clamp(1.05rem,2.4vw,1.4rem); color:#cbd8f5; max-width:44ch; margin:.2em auto 0; font-weight:600}
