@@ -1,6 +1,8 @@
 <div align="center">
 
-# 🎙️ MagicMeeting
+<img src="assets/logo@2x.png" alt="MagicMeeting" width="132" height="132" />
+
+# MagicMeeting
 
 ### Your meetings, transcribed and minuted — without a single byte leaving your Mac.
 
@@ -14,6 +16,7 @@
 
 [![Version](https://img.shields.io/github/v/release/apitlekays/magicmeeting-releases?label=latest&color=24c8db)](https://github.com/apitlekays/magicmeeting-releases/releases/latest)
 [![Platform](https://img.shields.io/badge/macOS-12.3%2B%20universal-1f6feb)](#-requirements)
+[![Windows & Linux](https://img.shields.io/badge/Windows%20%26%20Linux-coming%20soon-f0883e)](#coming-soon-windows--linux)
 [![Privacy](https://img.shields.io/badge/privacy-100%25%20on--device-2ea043)](#-your-audio-never-leaves-your-mac)
 [![Signed & Notarized](https://img.shields.io/badge/Apple-signed%20%2B%20notarized-lightgrey)](#-install-in-30-seconds)
 
@@ -32,6 +35,8 @@ You sat through the whole thing. Now you're scrubbing a recording, guessing who 
 ### [⬇ Download the latest release →](https://github.com/apitlekays/magicmeeting-releases/releases/latest)
 
 *Free. Signed & notarized by Apple. Opens with no Gatekeeper warning — online or offline.*
+
+**On Windows or Linux?** Native builds are on the way — [see below](#coming-soon-windows--linux).
 
 </div>
 
@@ -121,6 +126,14 @@ The build is **signed with a Developer ID certificate and notarized + stapled by
 
 ---
 
+## Coming soon: Windows & Linux
+
+🪟 **Windows** and 🐧 **Linux** are next. MagicMeeting is built on a cross-platform core (a Rust engine with a web UI), and native builds for both are on the way — same on-device, privacy-first transcription, no cloud.
+
+Want to know the moment they land? **[Watch this repository](https://github.com/apitlekays/magicmeeting-releases)** — choose *Watch → Custom → Releases* and GitHub will notify you on every new build.
+
+---
+
 ## ❓ FAQ
 
 **Is my audio really never uploaded?**
@@ -137,6 +150,9 @@ Yes — point it at an audio file and get a full speaker-labeled transcript and 
 
 **Which Macs are supported?**
 Any Mac on macOS 12.3+, Apple Silicon or Intel, from a single universal download.
+
+**Is there a Windows or Linux version?**
+Not yet — but they're coming. See [Coming soon: Windows & Linux](#coming-soon-windows--linux) and watch this repo to be notified.
 
 ---
 
