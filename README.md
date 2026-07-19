@@ -8,12 +8,12 @@
 
 <br/>
 
-[![⬇ Download for macOS](https://img.shields.io/badge/⬇%20Download%20for%20macOS-Universal%20(Apple%20Silicon%20%2B%20Intel)-1f6feb?style=for-the-badge)](https://github.com/apitlekays/magicmeeting-releases/releases/latest)
+[![Download for macOS](https://img.shields.io/badge/Download%20for%20macOS-Universal%20App-1f6feb?style=for-the-badge&logo=apple&logoColor=white)](https://github.com/apitlekays/magicmeeting-releases/releases/latest)
 
 <br/>
 
 [![Version](https://img.shields.io/github/v/release/apitlekays/magicmeeting-releases?label=latest&color=24c8db)](https://github.com/apitlekays/magicmeeting-releases/releases/latest)
-[![Platform](https://img.shields.io/badge/macOS-12.3%2B%20·%20universal-1f6feb)](#-requirements)
+[![Platform](https://img.shields.io/badge/macOS-12.3%2B%20universal-1f6feb)](#-requirements)
 [![Privacy](https://img.shields.io/badge/privacy-100%25%20on--device-2ea043)](#-your-audio-never-leaves-your-mac)
 [![Signed & Notarized](https://img.shields.io/badge/Apple-signed%20%2B%20notarized-lightgrey)](#-install-in-30-seconds)
 
