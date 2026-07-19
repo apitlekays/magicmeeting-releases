@@ -4,9 +4,9 @@
 
 # MagicMeeting
 
-### Your meetings, transcribed and minuted — without a single byte leaving your Mac.
+### Every conversation, transcribed and understood — without a single byte leaving your Mac.
 
-**Record any meeting. Get a speaker-labeled transcript, action items, and polished minutes in minutes — 100% on-device. No cloud. No account. No one listening in.**
+**For teams and researchers.** Record any meeting or interview and get a speaker-labeled transcript, structured minutes, and audio-linked **qualitative coding** — 100% on-device. No cloud. No account. No one listening in.
 
 <br/>
 
@@ -69,8 +69,8 @@ Double-click any line to correct it. **Merge** fragmented lines into one clean t
 ### 📋 Minutes & action items, ready to send
 Turn decisions into tracked **action items** with owner, priority, and status, aggregated into a single Minutes-of-Meeting table that stays in sync with the transcript. Stop rewriting minutes from scratch.
 
-### 🗂 Research-grade notes
-Highlight any excerpt, tag it with a code, and attach a note — then jump from any note straight back to that exact moment in the audio. Built for people who *analyze* conversations, not just skim them.
+### 🗂 Qualitative coding & research notes
+Highlight any excerpt, tag it with a **code**, group codes into **categories** and **themes**, and attach **analytic memos** — then jump from any note straight back to that exact moment in the audio. Built around the codes-to-categories workflow in *Johnny Saldaña's The Coding Manual for Qualitative Researchers*, so transcribing and coding interviews happens in one place — and the data never leaves your Mac.
 
 ### 📄 Export that's ready for the room
 One click to **PDF** or **Word (.docx)** — transcript, minutes, or notes — with clean, reproducible output you can drop into a report or email.
